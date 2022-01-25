@@ -1,10 +1,14 @@
 import React from "react";
 import { render } from "react-dom";
 import App from "./App.jsx";
+import { Provider } from 'react-redux';
+import store from './store';
 
 import style from "./scss/application.scss";
 
 render(
-  <App />,
+  <Provider store={store}>
+    <App />
+  </Provider>,
   document.getElementById("root")
 );
