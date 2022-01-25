@@ -1,4 +1,5 @@
 CREATE TABLE sessions(
-  _id PRIMARY KEY,
-  user_id FOREIGN KEY REFERENCES users(_id),
+  _id uuid DEFAULT uuid_generate_V4(),
+  user_id INT,
+  FOREIGN KEY (user_id) REFERENCES users(_id)
 )
