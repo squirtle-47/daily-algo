@@ -11,4 +11,4 @@ export const fetchAndSetAlgo = (dispatch) => {
         payload: { title, content, examples },
       });
     });
-}
+};
