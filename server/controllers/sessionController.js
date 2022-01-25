@@ -1,3 +1,5 @@
+const db = require('../models/sessionModel');
+
 const sessionController = {};
 
 sessionController.startSession = (req, res, next) => {
@@ -7,8 +9,8 @@ sessionController.startSession = (req, res, next) => {
 
 sessionController.isLoggedIn = (req, res, next) => {
   // search for session in database
-    // if exists,
-    // res.locals.ssid = req.cookies.ssid;
+
+
 }
 
 module.exports = sessionController;
