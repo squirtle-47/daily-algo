@@ -1,7 +1,14 @@
 import React from "react";
 import { render } from "react-dom";
-import App from "./containers/App.jsx";
+import { Provider } from 'react-redux';
+import App from "./App.jsx";
+import store from './store';
 
 import style from "./scss/application.scss";
 
-render(<App />, document.getElementById("root"));
+render(
+  <Provider store={store}>
+    <App />
+  </Provider>,
+  document.getElementById("root")
+);
