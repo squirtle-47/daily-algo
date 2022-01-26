@@ -49,11 +49,12 @@ algoController.sendAlgo = (req, res, next) => {
   }
   db.query(text, values)
     .then((data) => {
-      const { _id, title, content, example } = data.rows[0];
+      const { _id, title, content, example, tests } = data.rows[0];
       res.locals._id = _id;
       res.locals.title = title;
       res.locals.content = content;
       res.locals.examples = example;
+      res.locals.tests = JSON.parse(tests);
       return next();
     })
     .catch((err) => {
@@ -79,7 +80,7 @@ algoController.receivedDate = (req, res, next) => {
 
 algoController.submitSolution = (req, res, next) => {
   const { username, algo_id } = req.body;
-  const date = new Date().toLocaleString();
+  const date = new Date(new Date + 86400000).toLocaleString();
   const values = [username, algo_id, date];
   const text = `UPDATE users_join_algos SET date_submitted=$3 WHERE username=$1 AND algo_id=$2;`;
   db.query(text, values)
