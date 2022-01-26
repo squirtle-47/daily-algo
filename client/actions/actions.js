@@ -4,10 +4,10 @@ export const fetchAndSetAlgo = (dispatch) => {
   fetch('/api/algo')
     .then(res => res.json())
     .then(msg => {
-      const { title, content, examples } = msg;
+      const { title, content, examples, algo_id } = msg;
       dispatch({
         type: types.SET_ALGO,
-        payload: { title, content, examples },
+        payload: { title, content, examples, algo_id },
       });
     });
 };
@@ -16,7 +16,7 @@ export const fetchAndSetStats = (dispatch) => {
   fetch('/api/stats')
     .then(res => res.json())
     .then(msg => {
-      const completionDates = msg.map(x => x.date_submitted);
+      const completionDates = msg.dates.map(x => x.date_submitted);
       dispatch({
         type: types.SET_STATS,
         payload: completionDates,

@@ -5,17 +5,19 @@ const initialState = {
   content: "Loading...",
   examples: "",
   status: "",
+  algo_id: "",
 };
 
 const algoReducer = (state = initialState, action) => {
   switch (action.type) {
     case types.SET_ALGO: {
-      const { title, content, examples } = action.payload;
+      const { title, content, examples, algo_id } = action.payload;
       return {
         ...state,
         title,
         content,
         examples,
+        algo_id,
         status: "initial",
       };
     }
