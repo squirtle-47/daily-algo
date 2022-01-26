@@ -1,30 +1,20 @@
 const cookieController = {};
+const db = require('../models/model');
 
 cookieController.setSSIDCookie = (req, res, next) => {
-  const text = "SELECT _id FROM sessions WHERE user_id=($1);";
-  const values = [res.locals.id];
+  const text = "SELECT _id FROM sessions WHERE username=($1);";
+  const values = [res.locals.username];
   db.query(text, values)
-    .then((res) => {
-      res.cookie("ssid", res.rows[0]._id, { httpOnly: true });
+    .then((data) => {
+      res.cookie("ssid", data.rows[0]._id, { httpOnly: true, secure: true });
+      res.cookie("username", res.locals.username);
+      return next();
     })
     .catch((err) => {
+      console.log("Error in cookieController.setSSIDCookie")
       return next(err);
     });
-
   //res.locals.sessionCookie = res.cookie('ssid', res.locals.ssid, { httpOnly: true });
-  return next();
-};
-
-cookieController.setUserCookie = (req, res, next) => {
-  const text = "SELECT username FROM users WHERE _id=($1);";
-  const values = [res.locals.id];
-  db.query(text, values)
-    .then((res) => {
-      res.cookie("username", res.rows[0].username, { httpOnly: true });
-    })
-    .catch((err) => {
-      return next(err);
-    });
 };
 
 module.exports = cookieController;
