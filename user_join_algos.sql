@@ -1,8 +1,7 @@
-CREATE TABLE user_join_algo(
-  user_id INT,
-  FOREIGN KEY (user_id) REFERENCES users(_id),
+CREATE TABLE users_join_algos(
+  username VARCHAR(100),
+  FOREIGN KEY (username) REFERENCES users(username),
   algo_id INT,
   FOREIGN KEY (algo_id) REFERENCES algos(_id),
-  completed BOOLEAN,
   date timestamptz
 )

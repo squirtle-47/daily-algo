@@ -1,7 +1,7 @@
 const express = require("express");
 const app = express();
 const path = require("path");
-const apiRouter = require("./api");
+const router = require("./api");
 const PORT = 3000;
 
 app.use(express.json());
@@ -41,7 +41,7 @@ app.get("/main.css", (req, res) => {
 /**
  * handle API routes
  */
-app.use('/api', apiRouter);
+app.use('/api', router);
 
 /**
  * catch-all route handler for any requests to an unknown route
