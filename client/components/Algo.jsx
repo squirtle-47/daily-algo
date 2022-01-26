@@ -1,6 +1,7 @@
 import React from 'react';
 
 export default ({ title, content, examples }) => {
+
   return <span>
     <h3>{title}</h3>
     <br></br>

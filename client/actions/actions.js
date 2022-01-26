@@ -1,5 +1,18 @@
 import * as types from '../constants/actionTypes';
 
+export const clearAllTestStatus = () => {
+  return {
+    type: types.CLEAR_ALL_TEST_STATUS,
+  };
+}
+
+export const setTestStatus = ({ idx, status, error }) => {
+  return {
+    type: types.SET_TEST_STATUS,
+    payload: { idx, status, error },
+  };
+}
+
 export const fetchAndSetAlgo = (dispatch) => {
   fetch('/api/algo')
     .then(res => res.json())

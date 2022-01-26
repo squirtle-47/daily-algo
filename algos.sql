@@ -18,4 +18,6 @@ INSERT INTO algos (title, content, example) VALUES ('findZero', 'given an array 
 
 INSERT INTO algos (title, content, example) VALUES ('noDuplicates', 'given an array of integers return an array with the duplicates removed', 'Example: [1,2,3,3,4,5,6,1,1] ==> [1,2,3,4,5,6]');
 
-INSERT INTO algos (title, content, example) VALUES ('')
+INSERT INTO algos (title, content, example) VALUES ('invertBinaryTree', 'given a binary tree, reverse all of the nodes', 'Example: {8}->{5}{10}-> {2}{6}{7}{12} ==>{8}->{10}{5}-> {12}{7}{6}{2}');
+
+INSERT INTO algos (title, content, example) VALUES ('Two Sum', 'given an array of integers, return indices of the two numbers such that they add up to a specific target', 'Example: Given nums = [2, 7, 11, 15], target = 9,  Because nums[0] + nums[1] = 2 + 7 = 9, return [0, 1]');
