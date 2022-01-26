@@ -3,7 +3,7 @@ const algoController = {};
 
 algoController.checkAlgoReceived = (req, res, next) => {
   //query for date_received > today - 24 hours (in ms)
-  const todayRange = new Date(new Date() + 86400000).toLocaleString();
+  const todayRange = new Date(new Date() - 86400000).toLocaleString();
   const values = [todayRange];
   const text = "SELECT algo_id FROM users_join_algos WHERE date_received>$1";
   db.query(text, values)
