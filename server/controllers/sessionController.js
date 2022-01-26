@@ -18,8 +18,15 @@ sessionController.startSession = (req, res, next) => {
 
 sessionController.isLoggedIn = (req, res, next) => {
   // search for session in database
-
-
+  const text = 'SELECT username FROM sessions WHERE _id=$1;'
+  const values = [req.cookies.ssid];
+  db.query(text, values)
+    .then((data) => {
+      if(!data.rows.length) return next(new Error("Not authorized"));
+      res.locals.username = data.rows[0].username;
+      return next()
+    })
+    .catch((err) => next(err))
 }
 
 module.exports = sessionController;

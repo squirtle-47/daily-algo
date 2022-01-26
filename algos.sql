@@ -15,3 +15,7 @@ INSERT INTO algos (title, content, example) VALUES ('findZero', 'given an array 
 	input: arr = [1, 3, 2, 0, 4, 2, 1]
 		   startIdx = 1
 	output: false');
+
+INSERT INTO algos (title, content, example) VALUES ('noDuplicates', 'given an array of integers return an array with the duplicates removed', 'Example: [1,2,3,3,4,5,6,1,1] ==> [1,2,3,4,5,6]');
+
+INSERT INTO algos (title, content, example) VALUES ('')
