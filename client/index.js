@@ -1,7 +1,10 @@
 import React from "react";
 import { render } from "react-dom";
-import App from "./containers/App.jsx";
+import App from "./App.jsx";
 
 import style from "./scss/application.scss";
 
-render(<App />, document.getElementById("root"));
+render(
+  <App />,
+  document.getElementById("root")
+);
