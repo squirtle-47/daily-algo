@@ -19,15 +19,15 @@ export default ({ test, status, error }) => {
   }
 
   if (error) {
-    return <div className={statusClass}>
+    return <li><div className={statusClass}>
       {test}
       <br />
       Error: {error}
-    </div>
+    </div></li>;
   }
   else {
-    return <div className={statusClass}>
+    return <li><div className={statusClass}>
       {test}
-    </div>
+    </div></li>;
   }
 }

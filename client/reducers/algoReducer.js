@@ -14,7 +14,7 @@ const algoReducer = (state = initialState, action) => {
       const { title, content, examples, algo_id, tests } = action.payload;
       const testArray = tests.map(test => ({
         test,
-        result: null,
+        status: null,
         error: null,
       }));
       return {
@@ -23,21 +23,22 @@ const algoReducer = (state = initialState, action) => {
         content,
         examples,
         algo_id,
+        attempts: 0,
         tests: testArray,
       };
     }
-    case CLEAR_ALL_TEST_STATUS: {
+    case types.CLEAR_ALL_TEST_STATUS: {
       const testArray = state.tests.map(test => ({
         test: test.test,
-        result: null,
+        status: null,
         error: null,
       }));
       return {
         ...state,
-        testArray,
+        tests: testArray,
       }
     }
-    case SET_TEST_STATUS: {
+    case types.SET_TEST_STATUS: {
       const { idx, status, error } = action.payload;
       const testArray = [...state.tests];
       testArray[idx] = {
@@ -47,7 +48,7 @@ const algoReducer = (state = initialState, action) => {
       };
       return {
         ...state,
-        testArray,
+        tests: testArray,
       }
     }
     default: {

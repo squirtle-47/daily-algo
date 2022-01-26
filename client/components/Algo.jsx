@@ -10,7 +10,5 @@ export default ({ title, content, examples }) => {
       <br></br>
       <p>ex:</p>
       {examples}
-      <br />
-      <button onClick={submit}>Click me when finished (no cheating!)</button>
     </span>;
 };

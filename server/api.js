@@ -59,6 +59,7 @@ router.get(
       title: res.locals.title,
       content: res.locals.content,
       examples: res.locals.examples,
+      tests: res.locals.tests
     });
   }
 );
