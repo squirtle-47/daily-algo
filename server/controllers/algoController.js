@@ -49,11 +49,12 @@ algoController.sendAlgo = (req, res, next) => {
   }
   db.query(text, values)
     .then((data) => {
-      const { _id, title, content, example } = data.rows[0];
+      const { _id, title, content, example, tests } = data.rows[0];
       res.locals._id = _id;
       res.locals.title = title;
       res.locals.content = content;
       res.locals.examples = example;
+      res.locals.tests = JSON.parse(tests);
       return next();
     })
     .catch((err) => {
@@ -66,7 +67,7 @@ algoController.sendAlgo = (req, res, next) => {
 algoController.receivedDate = (req, res, next) => {
   if(res.locals.received) return next();
   const text =
-    "INSERT INTO users_join_algos (username, algo_id, date_received) VALUES ($1, $2, $3);";
+    "INSERT INTO users_join_algos (username, algo_id, date_received, attempts) VALUES ($1, $2, $3, 0);";
   const values = [
     req.cookies.username,
     res.locals._id,
@@ -78,10 +79,9 @@ algoController.receivedDate = (req, res, next) => {
 };
 
 algoController.submitSolution = (req, res, next) => {
-  const { username, algo_id } = req.body;
+  const { username, algo_id, attempts } = req.body;
   const date = new Date().toLocaleString();
-  const values = [req.cookies.username, algo_id, date];
-  console.log(values);
+  const values = [username, algo_id, date];
   const text = `UPDATE users_join_algos SET date_submitted=$3 WHERE username=$1 AND algo_id=$2;`;
   db.query(text, values)
     .then((data) => {

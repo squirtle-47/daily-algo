@@ -59,6 +59,7 @@ router.get(
       title: res.locals.title,
       content: res.locals.content,
       examples: res.locals.examples,
+      tests: res.locals.tests,
     });
   }
 );
@@ -74,6 +75,12 @@ router.post(
   }
 );
 
+router.post(
+  "/attempt",
+  statsController.checkIfCompleted,
+  statsController.incrementAttempts,
+  (req, res) => res.sendStatus(200)
+);
 //clear cookies/logout
 //route: POST /logout
 router.post("/logout", (req, res) => {
