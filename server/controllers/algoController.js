@@ -80,7 +80,8 @@ algoController.receivedDate = (req, res, next) => {
 algoController.submitSolution = (req, res, next) => {
   const { username, algo_id } = req.body;
   const date = new Date().toLocaleString();
-  const values = [username, algo_id, date];
+  const values = [req.cookies.username, algo_id, date];
+  console.log(values);
   const text = `UPDATE users_join_algos SET date_submitted=$3 WHERE username=$1 AND algo_id=$2;`;
   db.query(text, values)
     .then((data) => {
