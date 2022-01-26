@@ -2,11 +2,12 @@ const express = require("express");
 const app = express();
 const path = require("path");
 const router = require("./api");
+const cookieParser = require('cookie-parser');
 const PORT = 3000;
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-
+app.use(cookieParser());
 /**
  * handle requests for static files
  */
@@ -50,6 +51,10 @@ app.use('/api', router);
 /**
  * express error handler
  */
+ app.use((err, req, res, next) =>{
+  console.log(err);
+  res.status(500).send(`Internal Server Error`)
+})
 
 app.listen(PORT, () => {
   console.log(`Server listening on port: ${PORT}`);
