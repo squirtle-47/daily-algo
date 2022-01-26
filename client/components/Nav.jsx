@@ -5,13 +5,15 @@ export default ({ loggedIn, username, logOut }) => {
   if (loggedIn) {
     return <>
     <div className = "leftNav">
-      <span>Daily Algo</span>
       <Link to="/">Home</Link>
       <Link to="/stats">Stats</Link>
       </div>
       <div className = "rightNav">
-      <span>{username}</span>
-      <button onClick={logOut}>Logout</button>
+      <span className = "rightNav">{username}</span>
+      <button className = "logoutButton" onClick={logOut}>Logout</button>
+      </div>
+      <div className = "centerNav">
+      <span>Daily Algo</span>
       </div>
     </>;
   }

@@ -1,7 +1,7 @@
 import * as types from '../constants/actionTypes.js';
 
 const initialState = {
-  title: "foobar",
+  title: "",
   content: "Loading...",
   examples: "",
   algo_id: "",
