@@ -6,7 +6,7 @@ cookieController.setSSIDCookie = (req, res, next) => {
   const values = [res.locals.username];
   db.query(text, values)
     .then((data) => {
-      res.cookie("ssid", data.rows[0]._id, { httpOnly: true, secure: true });
+      res.cookie("ssid", data.rows[0]._id, { httpOnly: true });
       res.cookie("username", res.locals.username);
       return next();
     })
