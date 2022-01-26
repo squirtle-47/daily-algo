@@ -11,5 +11,7 @@ export default () => {
     logOut(dispatch);
   };
 
-  return <Nav loggedIn={loggedIn} username={username} logOut={logOutWrapper} />;
+  return <div className = "entireNav">
+    <Nav loggedIn={loggedIn} username={username} logOut={logOutWrapper} />
+  </div>;
 }

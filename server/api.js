@@ -55,7 +55,7 @@ router.get(
   algoController.receivedDate,
   (req, res) => {
     res.status(200).json({
-      _id: res.locals._id,
+      algo_id: res.locals._id,
       title: res.locals.title,
       content: res.locals.content,
       examples: res.locals.examples,
