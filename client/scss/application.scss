@@ -1,31 +1,87 @@
-@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DotGothic16&family=Orbitron:wght@700&family=Press+Start+2P&family=Tourney:wght@300;600&display=swap');
 
 body {
   background-color: rgb(204, 230, 207);
 }
 
-h3 {
-  color: #090cd6;
-  font-size: 2rem;
+h3.algoName {
+  color: #8b03a7;
+  font-size: 1em;
+  font-family: 'Press Start 2P';
 }
 
 textarea {
   color: rgb(8, 223, 8);
   background-color : black;
-  font-family: 'Press Start 2P';
+  font-family: 'DotGothic16', sans-serif;
   font-size: large;
   font-weight: 100px;
 }
 
 div.leftNav {
   float: left;
+  margin: 5px;
+  font-family: 'Press Start 2P';
+  font-size: xx-small;
+  color: #551a8b;
 }
 
 div.rightNav {
   float: right;
+  margin: 5px;
+  font-family: 'Press Start 2P';
+  font-size: xx-small;
+  color: #551a8b;
 }
 
 a {
   text-decoration: none;
   margin-right: 10px;
+}
+
+.tile-solved {
+  background-color: lightgreen;
+  display: flex;
+  height: 12vh;
+  min-height: 5em;
+  color: #551a8b;
+}
+
+.tile-normal {
+  background-color: white;
+  display: flex;
+  min-height: 5em;
+  height: 12vh;
+  color: #551a8b;
+}
+
+div.calendar {
+  display: flex;
+  justify-content: center;
+  color: #551a8b;
+}
+
+button.logoutButton {
+  color: burlywood;
+  background-color: darkslateblue;
+  font-family: 'Press Start 2P';
+  font-size: xx-small;
+}
+
+div.centerNav {
+  // margin: 20px;
+  justify-content: center;
+  display: flex;
+  font-size: xx-large;
+  font-family: 'Tourney', cursive;
+}
+
+span.rightNav {
+  margin: 10px;
+}
+
+h1.stats {
+  color: #8b03a7;
+  font-size: 2em;
+  font-family: 'Orbitron', sans-serif;
 }

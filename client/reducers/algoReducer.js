@@ -1,9 +1,10 @@
 import * as types from '../constants/actionTypes.js';
 
 const initialState = {
-  title: "foobar",
+  title: "",
   content: "Loading...",
   examples: "",
+  status: "",
 };
 
 const algoReducer = (state = initialState, action) => {
@@ -15,6 +16,7 @@ const algoReducer = (state = initialState, action) => {
         title,
         content,
         examples,
+        status: "initial",
       };
     }
     default: {

@@ -12,6 +12,25 @@ export const fetchAndSetAlgo = (dispatch) => {
     });
 };
 
+export const fetchAndSetStats = (dispatch) => {
+  fetch('/api/stats')
+    .then(res => res.json())
+    .then(msg => {
+      const completionDates = msg.map(x => x.date_submitted);
+      dispatch({
+        type: types.SET_STATS,
+        payload: completionDates,
+      });
+    });
+}
+
+export const setDummyStats = (completionDates, dispatch) => {
+  dispatch({
+    type: types.SET_STATS,
+    payload: completionDates,
+  })
+}
+
 export const logIn = (username, password, dispatch) => {
   fetch('/api/login', {
     method: 'POST',
