@@ -12,7 +12,7 @@ export default ({ logIn }) => {
   return (
     <form onSubmit={handleSubmit}>
       <label htmlFor="username">Username</label>
-      <input name="username" id="username-input" />
+      <input name="username" />
       <label htmlFor="password">Password</label>
       <input type="password" name="password" />
       <button type="submit">Submit</button>
