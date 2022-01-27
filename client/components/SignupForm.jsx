@@ -16,12 +16,19 @@ export default ({ signUp }) => {
   return (
     <form onSubmit={handleSubmit}>
       <label htmlFor="username">Username</label>
+      <br />
       <input name="username" id="username-input" />
+      <br />
       <label htmlFor="password">Password</label>
+      <br />
       <input type="password" name="password" />
+      <br />
       <label htmlFor="password-confirm">Confirm password</label>
+      <br />
       <input type="password" name="password-confirm" />
+      <br />
       <button type="submit">Submit</button>
+      <br />
     </form>
   );
 };

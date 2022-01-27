@@ -4,3 +4,4 @@ export const CLEAR_ALL_TEST_STATUS = "CLEAR_ALL_TEST_STATUS";
 export const LOG_IN = "LOG_IN";
 export const LOG_OUT = "LOG_OUT";
 export const SET_STATS = "SET_STATS";
+export const SET_EDITOR_CODE = "SET_EDITOR_CODE";
