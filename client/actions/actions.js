@@ -1,13 +1,26 @@
 import * as types from '../constants/actionTypes';
 
+export const clearAllTestStatus = () => {
+  return {
+    type: types.CLEAR_ALL_TEST_STATUS,
+  };
+}
+
+export const setTestStatus = ({ idx, status, error }) => {
+  return {
+    type: types.SET_TEST_STATUS,
+    payload: { idx, status, error },
+  };
+}
+
 export const fetchAndSetAlgo = (dispatch) => {
   fetch('/api/algo')
     .then(res => res.json())
     .then(msg => {
-      const { title, content, examples, algo_id } = msg;
+      const { title, content, examples, algo_id, tests } = msg;
       dispatch({
         type: types.SET_ALGO,
-        payload: { title, content, examples, algo_id },
+        payload: { title, content, examples, algo_id, tests },
       });
     });
 };
@@ -16,10 +29,14 @@ export const fetchAndSetStats = (dispatch) => {
   fetch('/api/stats')
     .then(res => res.json())
     .then(msg => {
-      const completionDates = msg.dates.map(x => x.date_submitted);
+      console.log(msg);
+      const stats = msg.stats.map(x => ({
+        completionDate: x.date_submitted,
+        attempts: x.attempts,
+      }));
       dispatch({
         type: types.SET_STATS,
-        payload: completionDates,
+        payload: stats,
       });
     });
 }

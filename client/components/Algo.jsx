@@ -1,16 +1,6 @@
 import React from 'react';
 
-export default ({ title, content, examples, algo_id }) => {
-
-  const submit = () => {
-    fetch('/api/submit', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ algo_id }),
-    });
-  };
+export default ({ title, content, examples }) => {
 
   return <span>
       <h3 className = "algoName" >{title}</h3>
@@ -20,7 +10,5 @@ export default ({ title, content, examples, algo_id }) => {
       <br></br>
       <p>ex:</p>
       {examples}
-      <br />
-      <button onClick={submit}>Click me when finished (no cheating!)</button>
     </span>;
 };

@@ -85,3 +85,17 @@ h1.stats {
   font-size: 2em;
   font-family: 'Orbitron', sans-serif;
 }
+
+.test-untested {
+  color: grey;
+}
+.test-success {
+  color: green;
+}
+.test-failure {
+  color: red;
+}
+.test-error {
+  color: red;
+  font-weight: bold;
+}

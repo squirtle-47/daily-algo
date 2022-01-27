@@ -14,7 +14,6 @@ cookieController.setSSIDCookie = (req, res, next) => {
       console.log("Error in cookieController.setSSIDCookie")
       return next(err);
     });
-  //res.locals.sessionCookie = res.cookie('ssid', res.locals.ssid, { httpOnly: true });
 };
 
 module.exports = cookieController;

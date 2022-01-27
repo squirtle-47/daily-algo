@@ -13,6 +13,9 @@ export default () => {
   }, []);
   
   const completionDates = useSelector(state => state.stats.completionDates);
+  const attempts = useSelector(state => state.stats.attempts);
+  const successes = useSelector(state => state.stats.successes);
+  const successRate = attempts ? String(100 * successes / attempts) + "%" : "No attempts made";
   const now = Date.now();
 
   const sameDay = (date1, date2) => {
@@ -67,6 +70,7 @@ export default () => {
     <br />
     <span>{streakMsg}</span>
     <br />
+    <span>Overall success rate: {successRate} ({successes}/{attempts})</span>
     <div className = "calendar">
     <Calendar tileClassName={selectTileClass} />
     </div>

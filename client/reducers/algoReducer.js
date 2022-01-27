@@ -4,22 +4,52 @@ const initialState = {
   title: "",
   content: "Loading...",
   examples: "",
-  status: "",
   algo_id: "",
+  tests: [],
 };
 
 const algoReducer = (state = initialState, action) => {
   switch (action.type) {
     case types.SET_ALGO: {
-      const { title, content, examples, algo_id } = action.payload;
+      const { title, content, examples, algo_id, tests } = action.payload;
+      const testArray = tests.map(test => ({
+        test,
+        status: null,
+        error: null,
+      }));
       return {
         ...state,
         title,
         content,
         examples,
         algo_id,
-        status: "initial",
+        attempts: 0,
+        tests: testArray,
       };
+    }
+    case types.CLEAR_ALL_TEST_STATUS: {
+      const testArray = state.tests.map(test => ({
+        test: test.test,
+        status: null,
+        error: null,
+      }));
+      return {
+        ...state,
+        tests: testArray,
+      }
+    }
+    case types.SET_TEST_STATUS: {
+      const { idx, status, error } = action.payload;
+      const testArray = [...state.tests];
+      testArray[idx] = {
+        test: testArray[idx].test,
+        status,
+        error: error || null,
+      };
+      return {
+        ...state,
+        tests: testArray,
+      }
     }
     default: {
       return state;

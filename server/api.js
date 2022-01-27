@@ -42,7 +42,7 @@ router.get(
   sessionController.isLoggedIn,
   statsController.getStats,
   (req, res) => {
-    res.status(200).json({ dates: res.locals.dates });
+    res.status(200).json({ stats: res.locals.stats });
   }
 );
 //get unique algo from algo table
