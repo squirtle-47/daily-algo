@@ -20,17 +20,27 @@ function testUserInput(userText, checkText) {
     };
   `;
   return new Promise((resolve) => {
+    console.log('creating blob')
     const blob = new Blob([userText, testHandler], {type: 'text/javascript'});
+    console.log('creating worker')
     const worker = new Worker(URL.createObjectURL(blob));
-    worker.onmessage = (e) => { console.log('got response:', e); resolve(e.data) };
+    console.log('created worker')
+    worker.onerror =  (e) => {
+      console.log('got error:', e);
+      resolve({ status: 'error', error: e.message });
+    }
+    worker.onmessage = (e) => {
+      console.log('got response:', e);
+      resolve(e.data);
+    };
     worker.postMessage(checkText);
-    console.log('runnign test');
   }); 
 }
 
-export default ({ algo_id, tests, clearAllTestStatus, setTestStatus }) => {
+export default ({ algo_id, tests, clearAllTestStatus, setTestStatus, code }) => {
   function testAndSubmit() {
-    const userAlgo = document.getElementById('user-algo').value;
+    //const userAlgo = document.getElementById('user-algo').value;
+    const userAlgo = code;
     clearAllTestStatus();
     let promiseChain = new Promise(resolve => resolve());
     let allPass = true;
@@ -74,15 +84,18 @@ export default ({ algo_id, tests, clearAllTestStatus, setTestStatus }) => {
     return <AlgoTest key={idx} test={test} status={status} error={error} />;
   })
 
+  const showTests = !!(tests.filter(x => x.status).length);
+  const testsClass = showTests ? "textarea" : "hidden";
 
   return <>
-    <textarea id="user-algo" rows="15" cols="80"></textarea>
     <br />
-    <button onClick={testAndSubmit}>Test and submit</button>
+    <button id="btn-test" class="logoutButton" onClick={testAndSubmit}>Test and submit</button>
     <br />
+    <div className={testsClass}>Test Results:
     <ul>
       {testComponents}
     </ul>
+    </div>
   </>;
 };
 

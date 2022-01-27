@@ -6,6 +6,13 @@ export const clearAllTestStatus = () => {
   };
 }
 
+export const setEditorCode = (code) => {
+  return {
+    type: types.SET_EDITOR_CODE,
+    payload: code,
+  }
+}
+
 export const setTestStatus = ({ idx, status, error }) => {
   return {
     type: types.SET_TEST_STATUS,

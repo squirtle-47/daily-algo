@@ -6,6 +6,7 @@ const initialState = {
   examples: "",
   algo_id: "",
   tests: [],
+  code: "",
 };
 
 const algoReducer = (state = initialState, action) => {
@@ -26,6 +27,12 @@ const algoReducer = (state = initialState, action) => {
         attempts: 0,
         tests: testArray,
       };
+    }
+    case types.SET_EDITOR_CODE: {
+      return {
+        ...state,
+        code: action.payload,
+      }
     }
     case types.CLEAR_ALL_TEST_STATUS: {
       const testArray = state.tests.map(test => ({

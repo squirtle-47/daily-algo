@@ -15,7 +15,7 @@ export default () => {
   const completionDates = useSelector(state => state.stats.completionDates);
   const attempts = useSelector(state => state.stats.attempts);
   const successes = useSelector(state => state.stats.successes);
-  const successRate = attempts ? String(100 * successes / attempts) + "%" : "No attempts made";
+  const successRate = attempts ? String(Math.floor(100 * successes / attempts)) + "%" : "No attempts made";
   const now = Date.now();
 
   const sameDay = (date1, date2) => {

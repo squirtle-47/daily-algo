@@ -3,12 +3,12 @@ import React from 'react';
 export default ({ title, content, examples }) => {
 
   return <span>
-      <h3 className = "algoName" >{title}</h3>
+      <h3 className = "algoName" >Today's Algo: {title}</h3>
       <br></br>
-      <textarea rows = "10" cols = "35" value = {content} readOnly>
-      </textarea>
+      <div className="textarea" rows = "10" cols = "35" readOnly>{content}
       <br></br>
-      <p>ex:</p>
       {examples}
+      </div>
+      <br></br>
     </span>;
 };

@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=DotGothic16&family=Orbitron:wght@700&family=Press+Start+2P&family=Tourney:wght@300;600&display=swap');
 
+@import 'prismjs/themes/prism.css';
+
 body {
   background-color: rgb(204, 230, 207);
 }
@@ -8,11 +10,18 @@ h3.algoName {
   color: #8b03a7;
   font-size: 1em;
   font-family: 'Press Start 2P';
+  margin: 10px;
 }
 
-textarea {
+.textarea {
+  padding: 10px;
+  margin: 10px;
+  width: 80%;
   color: rgb(8, 223, 8);
   background-color : black;
+  span {
+    background-color : black !important;
+  }
   font-family: 'DotGothic16', sans-serif;
   font-size: large;
   font-weight: 100px;
@@ -26,11 +35,12 @@ div.leftNav {
   color: #551a8b;
 }
 
+
 div.rightNav {
   float: right;
   margin: 5px;
   font-family: 'Press Start 2P';
-  font-size: xx-small;
+  font-size: 15px;
   color: #551a8b;
 }
 
@@ -61,11 +71,55 @@ div.calendar {
   color: #551a8b;
 }
 
+.react-calendar {
+  
+}
+
+.react-calendar__navigation {
+  display: flex;
+  height: 35px;
+}
+
+.react-calendar__navigation__arrow {
+  background-color: white;
+  width: 35px;
+  border: 1px solid gray;
+  border-radius: 5px;
+  font-family: "Orbitron", sans-serif;
+}
+
+.react-calendar__navigation__label {
+  max-width: 150px;
+  font-size: 14px;
+  background-color: white;
+  border: 1px solid gray;
+  border-radius: 5px;
+  font-family: "Orbitron", sans-serif;
+}
+
+.react-calendar__month-view {
+  font-family: "Orbitron", sans-serif;
+}
+
+.react-calendar__month-view__days {
+  font-family: "Orbitron", sans-serif;
+}
+
+.react-calendar__tile {
+  font-family: "Orbitron", sans-serif;
+}
+
 button.logoutButton {
+  padding: 5px 15px;
   color: burlywood;
   background-color: darkslateblue;
   font-family: 'Press Start 2P';
   font-size: xx-small;
+}
+
+button.logoutButton:hover {
+  color: darkslateblue;
+  background-color: burlywood;
 }
 
 div.centerNav {
@@ -86,11 +140,24 @@ h1.stats {
   font-family: 'Orbitron', sans-serif;
 }
 
+.link{
+  font-size: 15px;
+  padding: 10px 15px;
+  margin-right: 30px;
+}
+
+.link:hover{
+  background-color: #551a8b;
+  color: burlywood;
+  transition-duration: .2s;
+}
+
 .test-untested {
+  display: none;
   color: grey;
 }
 .test-success {
-  color: green;
+  color: rgb(8, 223, 8);
 }
 .test-failure {
   color: red;
@@ -98,4 +165,18 @@ h1.stats {
 .test-error {
   color: red;
   font-weight: bold;
+}
+
+.hidden {
+  display: none;
+}
+
+#btn-test {
+  padding: 10px;
+  margin: 10px;
+}
+
+#btn-test:hover {
+  color: darkslateblue;
+  background-color: burlywood;
 }
