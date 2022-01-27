@@ -24,7 +24,7 @@ export default () => {
   
   return <>
     <Algo title={title} content={content} examples={examples} algo_id={algo_id} />
-    <EditorContainer className="/>
+    <EditorContainer />
     <AlgoSubmitter 
       algo_id={algo_id}
       tests={tests}
