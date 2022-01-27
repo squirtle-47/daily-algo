@@ -11,15 +11,15 @@ export default ({ logIn }) => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <label htmlFor="username">Username</label>
+      <label className="text" htmlFor="username">Username</label>
       <br />
       <input name="username" id="username-input" />
       <br />
-      <label htmlFor="password">Password</label>
+      <label className="text" htmlFor="password">Password</label>
       <br />
       <input type="password" name="password" />
       <br />
-      <button type="submit">Submit</button>
+      <button className="logoutButton" type="submit" style={{margin: "10px"}}>Submit</button>
     </form>
   );
 };

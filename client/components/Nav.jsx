@@ -20,11 +20,11 @@ export default ({ loggedIn, username, logOut }) => {
   else {
     return <>
     <div className = "leftNav">
-      <span>Daily Algo</span>
+      <span className="text">Daily Algo</span>
       </div>
       <div className = "rightNav">
-      <Link to="/login">Login</Link>
-      <Link to="/signup">Signup</Link>
+      <Link className="link" to="/login">Login</Link>
+      <Link className="link" to="/signup">Signup</Link>
       </div>
     </>;
   }

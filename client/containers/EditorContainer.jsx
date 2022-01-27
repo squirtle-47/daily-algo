@@ -22,5 +22,6 @@ export default () => {
     onValueChange={setEditorCodeWrapper}
     highlight={code => highlight(code, languages.js)}
     padding={10}
+    style={{boxSizing: "content-box"}}
   />;
 }

@@ -6,7 +6,7 @@ export default () => {
   return <>
     <NavContainer />
     <br />
-    <h1>Login</h1>
+    <h3 className="algoName">Login</h3>
     <LoginContainer />
   </>;
 }
