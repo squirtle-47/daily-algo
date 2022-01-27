@@ -29,6 +29,7 @@ export const fetchAndSetStats = (dispatch) => {
   fetch('/api/stats')
     .then(res => res.json())
     .then(msg => {
+      console.log(msg);
       const stats = msg.stats.map(x => ({
         completionDate: x.date_submitted,
         attempts: x.attempts,

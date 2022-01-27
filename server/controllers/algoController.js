@@ -4,8 +4,8 @@ const algoController = {};
 algoController.checkAlgoReceived = (req, res, next) => {
   //query for date_received > today - 24 hours (in ms)
   const todayRange = new Date(new Date() - 86400000).toLocaleString();
-  const values = [todayRange];
-  const text = "SELECT algo_id FROM users_join_algos WHERE date_received>$1";
+  const values = [todayRange, req.cookies.username];
+  const text = "SELECT algo_id FROM users_join_algos WHERE date_received>$1 AND username=$2";
   db.query(text, values)
     .then((data) => {
       //if we get something, return users join algos algo_id
@@ -79,9 +79,10 @@ algoController.receivedDate = (req, res, next) => {
 };
 
 algoController.submitSolution = (req, res, next) => {
-  const { username, algo_id, attempts } = req.body;
+  console.log("SUBMITTED");
+  const { algo_id, attempts } = req.body;
   const date = new Date().toLocaleString();
-  const values = [username, algo_id, date];
+  const values = [req.cookies.username, algo_id, date];
   const text = `UPDATE users_join_algos SET date_submitted=$3 WHERE username=$1 AND algo_id=$2;`;
   db.query(text, values)
     .then((data) => {
